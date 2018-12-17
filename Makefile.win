@@ -1,0 +1,31 @@
+# Project: LinkPuzzleGames
+# Makefile created by Dev-C++ 5.8.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = conio_yp.o LinkPuzzleGames.o
+LINKOBJ  = conio_yp.o LinkPuzzleGames.o
+LIBS     = -L"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/lib" -L"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/include" -I"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/include" -I"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Documents/Degree/Sem 2/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = LinkPuzzleGames.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+conio_yp.o: conio_yp.c
+	$(CPP) -c conio_yp.c -o conio_yp.o $(CXXFLAGS)
+
+LinkPuzzleGames.o: LinkPuzzleGames.cpp
+	$(CPP) -c LinkPuzzleGames.cpp -o LinkPuzzleGames.o $(CXXFLAGS)
